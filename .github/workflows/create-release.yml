@@ -22,7 +22,7 @@ jobs:
         with:
           bump_version_scheme: patch
           tag_prefix: "v"
-          use-github-release-notes: true
+          use_github_release_notes: true
 
       - name: Check Output Parameters
         if: github.ref == 'refs/heads/main'
