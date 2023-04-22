@@ -1,4 +1,4 @@
-name: Build and Deploy GH Pages
+name: Create Release
 
 on:
   push:
@@ -9,10 +9,8 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  build-and-deploy:
+  create-release:
     runs-on: ubuntu-22.04
-    env:
-      
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
