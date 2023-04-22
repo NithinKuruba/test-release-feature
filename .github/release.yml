@@ -1,0 +1,24 @@
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+      - dependencies
+    authors:
+      - octocat
+      - dependabot
+  categories:
+    - title: Exciting New Features 🎉
+      labels:
+        - "type:feature"
+    - title: Improvements 🚀
+      labels:
+        - "type:enhancement"
+    - title: Bug Fixes 🐞
+      labels:
+        - "type:bug"
+    - title: Breaking Changes 🛠
+      labels:
+        - "type:breaking-change"
+    - title: Other Changes
+      labels:
+        - "*"

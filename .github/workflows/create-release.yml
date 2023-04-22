@@ -1,0 +1,34 @@
+name: Build and Deploy GH Pages
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-22.04
+    env:
+      
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      - name: Create Release
+        if: github.ref == 'refs/heads/main'
+        id: release
+        uses: rymndhng/release-on-push-action@v0.20.0
+        with:
+          bump_version_scheme: patch
+          tag_prefix: "v"
+          use-github-release-notes: true
+
+      - name: Check Output Parameters
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "Got tag name ${{ steps.release.outputs.tag_name }}"
+          echo "Got release version ${{ steps.release.outputs.version }}"
+          echo "Upload release artifacts to ${{ steps.release.outputs.upload_url }}"
